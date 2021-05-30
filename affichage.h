@@ -18,19 +18,19 @@
 #include <stdlib.h>
 #include "bateau.h"
 
-#define FORMAT_MSG "%-20s : "
-#define MSG_NOM "Nom du bateau"
-#define MSG_TYPE "Type du bateau"
-#define MSG_SURFACE "Surface voile"
-#define MSG_PUISSANCE "Puissance moteur"
-#define MSG_CAPACITE "Capacite max de peche"
+#define FORMAT_MSG "%-28s : "
+#define MSG_NOM "Nom"
+#define MSG_TYPE "Categorie"
+#define MSG_SURFACE "Surface de la voile"
+#define MSG_PUISSANCE "Puissance du moteur"
+#define MSG_CAPACITE "Capacite maximale de peche"
 #define MSG_PROPRIETAIRE "Nom du proprietaire"
 #define MSG_LONGUEUR "Longueur"
 
 #define METRIQUE_SURFACE "[m2]"
 #define METRIQUE_PUISSANCE "[CV]"
-#define METRIQUE_LONGUEUR "[m]"
 #define METRIQUE_CAPACITE "[t]"
+#define METRIQUE_LONGUEUR "[m]"
 
 void afficherBateau(const Bateau* bateau);
 

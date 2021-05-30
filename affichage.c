@@ -19,16 +19,21 @@ void afficherBateau(const Bateau* bateau) {
 	if (!bateau) { return; }
 
 	printf(FORMAT_MSG "%s\n", MSG_NOM, bateau->nom);
-	printf(FORMAT_MSG "%s\n", MSG_TYPE, TYPE_BATEAU[bateau->typeBateau]);
 
 	switch (bateau->typeBateau) {
 		case VOILIER:
+			printf(FORMAT_MSG "%s\n", MSG_TYPE, TYPE_BATEAU[VOILIER]);
 			printf(FORMAT_MSG"%d %s\n",
 					 MSG_SURFACE,
 					 bateau->specBateaux.voilier.surfaceVoile,
 					 METRIQUE_SURFACE);
 			break;
 		case BATEAU_MOTEUR:
+			printf(FORMAT_MSG"%s %s\n",
+					 MSG_TYPE,
+					 TYPE_BATEAU[BATEAU_MOTEUR],
+					 TYPE_BATEAU_MOTEUR[bateau->specBateaux
+						 .bateauMoteur.typeBateauMoteur]);
 			printf(FORMAT_MSG"%d %s\n",
 					 MSG_PUISSANCE,
 					 bateau->specBateaux.bateauMoteur.puissanceMoteur,

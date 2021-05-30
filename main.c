@@ -21,6 +21,8 @@ int main() {
 		voilier("Going Merry", 120),
 		voilier("Thousand Sunny", 250),
 		bateauPlaisance("Titanic", 51000, "John Pierpont Morgan", (Longueur) 269),
+		bateauPeche("VLADIVOSTOK 2000", 4000, (CapaciteMaxPeche) 14000),
+		bateauPeche("GOLDEN ALASKA", 400, (CapaciteMaxPeche) 250),
 	};
 	afficherPort(port, sizeof(port) / sizeof(Bateau));
 

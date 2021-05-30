@@ -16,7 +16,7 @@
 #include "bateau.h"
 
 const char* const TYPE_BATEAU[] = {"Voilier", "Bateau a moteur"};
-const char* const TYPE_BATEAU_MOTEUR[] = {"Bateau de peche", "Bateau de plaisance"};
+const char* const TYPE_BATEAU_MOTEUR[] = {"de peche", "de plaisance"};
 
 Bateau voilier(Nom nom, SurfaceVoile surfaceVoile) {
 	return (Bateau) {nom, VOILIER, {{surfaceVoile}}};
