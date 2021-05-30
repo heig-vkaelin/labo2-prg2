@@ -17,9 +17,6 @@
 
 #include <stdint.h>
 
-//#define METRIQUE_SURFACE "m2"
-//#define METRIQUE_PUISSANCE "CV"
-//#define METRIQUE_LONGUEUR "m"
 //#define TAXE_VOILIER 50
 //#define TAXE_BATEAU_MOTEUR 100
 
@@ -73,6 +70,7 @@ typedef struct {
 	SpecBateaux specBateaux;
 } Bateau;
 
+typedef Bateau Port[];
 
 Bateau voilier(Nom nom, SurfaceVoile surfaceVoile);
 
