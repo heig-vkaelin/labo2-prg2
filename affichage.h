@@ -30,7 +30,7 @@
 #define METRIQUE_SURFACE "[m2]"
 #define METRIQUE_PUISSANCE "[CV]"
 #define METRIQUE_LONGUEUR "[m]"
-#define METRIQUE_CAPACITE "[t"
+#define METRIQUE_CAPACITE "[t]"
 
 void afficherBateau(const Bateau* bateau);
 

@@ -58,8 +58,10 @@ void afficherBateau(const Bateau* bateau) {
 }
 
 void afficherPort(const Port port, size_t taille) {
-	for (size_t i = 0; i < taille; ++i) {
-		afficherBateau(&port[i]);
-		printf("\n");
+	if (port) {
+		for (size_t i = 0; i < taille; ++i) {
+			afficherBateau(&port[i]);
+			printf("\n");
+		}
 	}
 }
