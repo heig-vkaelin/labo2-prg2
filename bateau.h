@@ -17,11 +17,11 @@
 
 #include <stdint.h>
 
-#define METRIQUE_SURFACE "m2"
-#define METRIQUE_PUISSANCE "CV"
-#define METRIQUE_LONGUEUR "m"
-#define TAXE_VOILIER 50
-#define TAXE_BATEAU_MOTEUR 100
+//#define METRIQUE_SURFACE "m2"
+//#define METRIQUE_PUISSANCE "CV"
+//#define METRIQUE_LONGUEUR "m"
+//#define TAXE_VOILIER 50
+//#define TAXE_BATEAU_MOTEUR 100
 
 typedef const char* Nom;
 typedef enum {
@@ -30,21 +30,25 @@ typedef enum {
 typedef enum {
 	PECHE, PLAISANCE
 } TypeBateauMoteur;
-typedef uint16_t Surface;
+typedef uint16_t SurfaceVoile;
 typedef uint16_t PuissanceMoteur;
 typedef uint8_t CapaciteMaxPeche;
 typedef uint8_t Longueur;
 
-const char* const TYPE_BATEAU[] = {"Voilier", "Bateau a moteur"};
-const char* const TYPE_BATEAU_MOTEUR[] = {"Bateau de peche", "Bateau de plaisance"};
+extern const char* const TYPE_BATEAU[];
+extern const char* const TYPE_BATEAU_MOTEUR[];
 
 typedef struct {
-	CapaciteMaxPeche capaciteMaxPeche;
+	SurfaceVoile surfaceVoile; // en mètres-carrés [m²]
+} Voilier;
+
+typedef struct {
+	CapaciteMaxPeche capaciteMaxPeche; // en tonnes [t]
 } BateauPeche;
 
 typedef struct {
-	Nom nomProprio;
-	Longueur longueur;
+	Nom nomProprietaire;
+	Longueur longueur; // en mètres [m]
 } BateauPlaisance;
 
 typedef union {
@@ -55,12 +59,8 @@ typedef union {
 typedef struct {
 	TypeBateauMoteur typeBateauMoteur;
 	SpecBateauMoteur specBateauMoteur;
-	PuissanceMoteur puissanceMoteur;
+	PuissanceMoteur puissanceMoteur; // en nombre de chevaux [CV]
 } BateauMoteur;
-
-typedef struct {
-	Surface surface;
-} Voilier;
 
 typedef union {
 	Voilier voilier;
@@ -68,9 +68,18 @@ typedef union {
 } SpecBateaux;
 
 typedef struct {
-	Nom nomBateau;
+	Nom nom;
 	TypeBateau typeBateau;
 	SpecBateaux specBateaux;
-} Personne;
+} Bateau;
 
-#endif //PRG2_LABO2_BATEAU_H
+
+Bateau voilier(Nom nom, SurfaceVoile surfaceVoile);
+
+Bateau bateauPeche(Nom nom, PuissanceMoteur puissanceMoteur,
+						 CapaciteMaxPeche capaciteMaxPeche);
+
+Bateau bateauPlaisance(Nom nom, PuissanceMoteur puissanceMoteur,
+							  Nom nomProprietaire, Longueur longueur);
+
+#endif // PRG2_LABO2_BATEAU_H
