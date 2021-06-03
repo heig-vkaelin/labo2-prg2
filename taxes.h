@@ -37,4 +37,4 @@ double calculerTaxeBateau(const Bateau* bateau);
 
 TaxeBateau** calculerTaxesPort(const Port port, size_t taille);
 
-#endif //PRG2_LABO2_TAXES_H
+#endif // PRG2_LABO2_TAXES_H

@@ -35,8 +35,8 @@
 #define METRIQUE_CAPACITE "[t]"
 #define METRIQUE_LONGUEUR "[m]"
 
-void afficherBateau(const Bateau* bateau, const TaxeBateau* taxes);
+void afficherBateau(const Bateau* bateau);
 
-void afficherPort(const Port port, size_t taille, TaxeBateau** taxes);
+void afficherPort(const Port port, size_t taille);
 
 #endif // PRG2_LABO2_AFFICHAGE_H

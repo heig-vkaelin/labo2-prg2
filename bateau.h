@@ -65,6 +65,7 @@ typedef struct {
 	Nom nom;
 	TypeBateau typeBateau;
 	SpecBateaux specBateaux;
+	double taxe;
 } Bateau;
 
 typedef Bateau Port[];
