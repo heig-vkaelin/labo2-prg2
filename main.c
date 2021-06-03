@@ -30,8 +30,6 @@ int main() {
 
 	TaxeBateau** taxes = calculerTaxesPort(port, NB_BATEAUX);
 
-	afficherPort(port, NB_BATEAUX, taxes);
-
 	// TODO:
 	// 3) afficher, par type de bateau (voilier, bateau de pêche, bateau de plaisance),
 	// la somme, la moyenne, la médiane et l'écart-type des taxes annuelles dues
@@ -47,10 +45,36 @@ int main() {
 	// TODO: comment trouver dynamiquement le nombre de types de bateaux différents
 	// (3 dans notre cas)
 
-	double** taxesParType = (double**) calloc(3, sizeof(double*));
+	const size_t NB_TYPES = 3;
+//	double** taxesParType = (double**) calloc(NB_TYPES, sizeof(double*));
+//	for (size_t i = 0; i < NB_TYPES; ++i) {
+//		taxesParType[i] = calloc(NB_BATEAUX, sizeof(double));
+//		if (!taxesParType[i]) { return EXIT_FAILURE; }
+//	}
 
-	// TODO: comment trouver la taille de chaque liste de chaque type
+
+		TaxesParType taxesParType = {};
 
 
-	return EXIT_SUCCESS;
+	// Ajout des bateaux dans leurs catégories
+//	for (size_t i = 0; i < NB_BATEAUX; ++i) {
+//		switch (taxes[i]->bateau->typeBateau) {
+//			case VOILIER:
+//
+//				break;
+//			case BATEAU_MOTEUR:
+//				break;
+//		}
+//	}
+
+	double moyenne = statistiquesParType(taxes, MOYENNE);
+
+	if (taxes && taxesParType) {
+		afficherPort(port, NB_BATEAUX, taxes);
+
+		return EXIT_SUCCESS;
+	}
+
+
+	return EXIT_FAILURE;
 }

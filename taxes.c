@@ -49,3 +49,9 @@ TaxeBateau** calculerTaxesPort(const Port port, size_t taille) {
 	}
 	return taxes;
 }
+
+double statistiquesParType(const double* taxes, Statistiques stats) {
+
+
+	return 0;
+}

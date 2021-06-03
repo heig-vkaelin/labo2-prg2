@@ -27,6 +27,12 @@ typedef struct {
 	double taxe;
 } TaxeBateau;
 
+typedef struct {
+	double* listeVoiliers;
+	double* listePeches;
+	double* listePlaisances;
+} TaxesParType;
+
 typedef enum {
 	SOMME, MOYENNE, MEDIANNE, ECART_TYPE
 } Statistiques;
@@ -36,5 +42,8 @@ typedef enum {
 double calculerTaxeBateau(const Bateau* bateau);
 
 TaxeBateau** calculerTaxesPort(const Port port, size_t taille);
+
+
+double statistiquesParType(const double* taxes, Statistiques stats);
 
 #endif //PRG2_LABO2_TAXES_H
