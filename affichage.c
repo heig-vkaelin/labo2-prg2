@@ -15,10 +15,11 @@
 #include <stdio.h>
 #include "affichage.h"
 
-void afficherBateau(const Bateau* bateau) {
-	if (!bateau) { return; }
+void afficherBateau(const Bateau* bateau, const TaxeBateau* taxes) {
+	if (!bateau || !taxes) { return; }
 
 	printf(FORMAT_MSG "%s\n", MSG_NOM, bateau->nom);
+	printf(FORMAT_MSG "%g %s\n", MSG_TAXE, taxes->taxe, METRIQUE_TAXE);
 
 	switch (bateau->typeBateau) {
 		case VOILIER:
@@ -62,10 +63,10 @@ void afficherBateau(const Bateau* bateau) {
 	}
 }
 
-void afficherPort(const Port port, size_t taille) {
+void afficherPort(const Port port, size_t taille, TaxeBateau** taxes) {
 	if (port) {
 		for (size_t i = 0; i < taille; ++i) {
-			afficherBateau(&port[i]);
+			afficherBateau(&port[i], taxes[i]);
 			printf("\n");
 		}
 	}

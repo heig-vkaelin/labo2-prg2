@@ -17,9 +17,6 @@
 
 #include <stdint.h>
 
-//#define TAXE_VOILIER 50
-//#define TAXE_BATEAU_MOTEUR 100
-
 typedef const char* Nom;
 typedef enum {
 	VOILIER, BATEAU_MOTEUR

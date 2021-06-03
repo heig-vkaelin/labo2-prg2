@@ -17,9 +17,11 @@
 
 #include <stdlib.h>
 #include "bateau.h"
+#include "taxes.h"
 
 #define FORMAT_MSG "%-28s : "
 #define MSG_NOM "Nom"
+#define MSG_TAXE "Taxe"
 #define MSG_TYPE "Categorie"
 #define MSG_SURFACE "Surface de la voile"
 #define MSG_PUISSANCE "Puissance du moteur"
@@ -27,13 +29,14 @@
 #define MSG_PROPRIETAIRE "Nom du proprietaire"
 #define MSG_LONGUEUR "Longueur"
 
+#define METRIQUE_TAXE "Euros"
 #define METRIQUE_SURFACE "[m2]"
 #define METRIQUE_PUISSANCE "[CV]"
 #define METRIQUE_CAPACITE "[t]"
 #define METRIQUE_LONGUEUR "[m]"
 
-void afficherBateau(const Bateau* bateau);
+void afficherBateau(const Bateau* bateau, const TaxeBateau* taxes);
 
-void afficherPort(const Port port, size_t taille);
+void afficherPort(const Port port, size_t taille, TaxeBateau** taxes);
 
 #endif // PRG2_LABO2_AFFICHAGE_H
