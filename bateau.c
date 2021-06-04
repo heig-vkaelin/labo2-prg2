@@ -14,45 +14,36 @@
 
 #include <string.h>
 #include "bateau.h"
-#include "taxes.h"
 
 const char* const TYPE_BATEAU[] = {"Voilier", "Bateau a moteur"};
 const char* const TYPE_BATEAU_MOTEUR[] = {"de peche", "de plaisance"};
 
 Bateau voilier(Nom nom, SurfaceVoile surfaceVoile) {
-	Bateau b = {nom, VOILIER, {{surfaceVoile}}, 0.0};
-	b.taxe = calculerTaxeBateau(&b);
-	return b;
+	return (Bateau) {nom, VOILIER, {{surfaceVoile}}};
 }
 
 Bateau bateauPeche(Nom nom, PuissanceMoteur puissanceMoteur,
 						 CapaciteMaxPeche capaciteMaxPeche) {
-	Bateau b = {
+	return (Bateau) {
 		nom,
 		BATEAU_MOTEUR,
 		{.bateauMoteur={
 			PECHE,
 			{{capaciteMaxPeche}},
 			puissanceMoteur
-		}},
-		0.0
+		}}
 	};
-	b.taxe = calculerTaxeBateau(&b);
-	return b;
 }
 
 Bateau bateauPlaisance(Nom nom, PuissanceMoteur puissanceMoteur,
 							  Nom nomProprietaire, Longueur longueur) {
-	Bateau b = {
+	return (Bateau) {
 		nom,
 		BATEAU_MOTEUR,
 		{.bateauMoteur={
 			PLAISANCE,
 			{.bateauPlaisance={nomProprietaire, longueur}},
 			puissanceMoteur
-		}},
-		0.0
+		}}
 	};
-	b.taxe = calculerTaxeBateau(&b);
-	return b;
 }

@@ -76,20 +76,24 @@ void afficherTaxes(const Port port, size_t taille) {
 	for (size_t i = 0; i < taille; ++i) {
 		switch (port[i].typeBateau) {
 			case VOILIER:
-				taxesVoiliers[nbVoiliers++] = port[i].taxe;
+				taxesVoiliers[nbVoiliers++] = calculerTaxeBateau(&port[i]);
 				break;
 			case BATEAU_MOTEUR:
 				switch (port[i].specBateaux.bateauMoteur.typeBateauMoteur) {
 					case PECHE:
-						taxesPeches[nbPeches++] = port[i].taxe;
+						taxesPeches[nbPeches++] = calculerTaxeBateau(&port[i]);
 						break;
 					case PLAISANCE:
-						taxesPlaisances[nbPlaisances++] = port[i].taxe;
+						taxesPlaisances[nbPlaisances++] = calculerTaxeBateau(&port[i]);
 						break;
 				}
 				break;
 		}
 	}
+
+	taxesVoiliers = realloc(taxesVoiliers, nbVoiliers * sizeof(double));
+	taxesPeches = realloc(taxesPeches, nbPeches * sizeof(double));
+	taxesPlaisances = realloc(taxesPlaisances, nbPlaisances * sizeof(double));
 
 	afficherTaxesParType(taxesVoiliers, nbVoiliers, "Voiliers");
 	afficherTaxesParType(taxesPeches, nbPeches, "Bateaux de peche");

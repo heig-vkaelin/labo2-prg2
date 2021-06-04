@@ -19,7 +19,7 @@ void afficherBateau(const Bateau* bateau) {
 	if (!bateau) { return; }
 
 	printf(FORMAT_MSG "%s\n", MSG_NOM, bateau->nom);
-	printf(FORMAT_MSG "%g %s\n", MSG_TAXE, bateau->taxe, METRIQUE_TAXE);
+	printf(FORMAT_MSG "%g %s\n", MSG_TAXE, calculerTaxeBateau(bateau), METRIQUE_TAXE);
 
 	switch (bateau->typeBateau) {
 		case VOILIER:
