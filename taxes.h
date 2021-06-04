@@ -1,6 +1,16 @@
-//
-// Created by Valentin on 03.06.2021.
-//
+/*
+ -----------------------------------------------------------------------------------
+ Nom du fichier : taxes.h
+ Auteur(s)      : Joel Dos Santos Matias, Géraud Silvestri, Valentin Kaelin,
+ Date creation  : 30.05.2021
+
+ Description    : Programme principal ...
+
+ Remarque(s)    : -
+
+ Compilateur    : Mingw-w64 gcc 8.1.0
+ -----------------------------------------------------------------------------------
+*/
 
 #ifndef PRG2_LABO2_TAXES_H
 #define PRG2_LABO2_TAXES_H
@@ -22,11 +32,13 @@
 #define TAXE_PLAISANCE_MULTIPLICATEUR_HAUT 15.0
 #define TAXE_PLAISANCE_SEUIL 100
 
-typedef struct {
-	const Bateau* bateau;
-	double taxe;
-} TaxeBateau;
+//typedef double Taxe;
 
+//typedef struct {
+//	const Bateau* bateau;
+//	double taxe;
+//} TaxeBateau;
+//
 typedef enum {
 	SOMME, MOYENNE, MEDIANNE, ECART_TYPE
 } Statistiques;
@@ -35,6 +47,16 @@ typedef enum {
 
 double calculerTaxeBateau(const Bateau* bateau);
 
-TaxeBateau** calculerTaxesPort(const Port port, size_t taille);
+//void calculerTaxesPort(const Port port, size_t taille);
+
+double calculerSomme(const double* liste, size_t taille);
+
+double calculerMoyenne(const double* liste, size_t taille);
+
+double calculerMediane(const double* liste, size_t taille);
+
+double calculerEcartType(const double* liste, size_t taille);
+
+//TaxeBateau** calculerTaxesPort_old(const Port port, size_t taille);
 
 #endif // PRG2_LABO2_TAXES_H
