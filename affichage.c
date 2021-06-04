@@ -13,13 +13,16 @@
 */
 
 #include <stdio.h>
+#include <string.h>
 #include "affichage.h"
+#include "taxes.h"
 
-void afficherBateau(const Bateau* bateau, const TaxeBateau* taxes) {
-	if (!bateau || !taxes) { return; }
+void afficherBateau(const Bateau* bateau) {
+	if (!bateau) { return; }
 
+	puts(SEPARATEUR);
 	printf(FORMAT_MSG "%s\n", MSG_NOM, bateau->nom);
-	printf(FORMAT_MSG "%g %s\n", MSG_TAXE, taxes->taxe, METRIQUE_TAXE);
+	printf(FORMAT_MSG "%g %s\n", MSG_TAXE, calculerTaxeBateau(bateau), METRIQUE_TAXE);
 
 	switch (bateau->typeBateau) {
 		case VOILIER:
@@ -30,11 +33,11 @@ void afficherBateau(const Bateau* bateau, const TaxeBateau* taxes) {
 					 METRIQUE_SURFACE);
 			break;
 		case BATEAU_MOTEUR:
-			printf(FORMAT_MSG"%s %s\n",
+			printf(FORMAT_MSG"%s\n",
 					 MSG_TYPE,
-					 TYPE_BATEAU[BATEAU_MOTEUR],
-					 TYPE_BATEAU_MOTEUR[bateau->specBateaux
-						 .bateauMoteur.typeBateauMoteur]);
+					 TYPE_BATEAU_MOTEUR[
+						 bateau->specBateaux.bateauMoteur.typeBateauMoteur
+					 ]);
 			printf(FORMAT_MSG"%d %s\n",
 					 MSG_PUISSANCE,
 					 bateau->specBateaux.bateauMoteur.puissanceMoteur,
@@ -61,13 +64,69 @@ void afficherBateau(const Bateau* bateau, const TaxeBateau* taxes) {
 			}
 			break;
 	}
+	puts(SEPARATEUR);
 }
 
-void afficherPort(const Port port, size_t taille, TaxeBateau** taxes) {
+void afficherPort(const Port port, size_t taille) {
 	if (port) {
 		for (size_t i = 0; i < taille; ++i) {
-			afficherBateau(&port[i], taxes[i]);
+			afficherBateau(&port[i]);
 			printf("\n");
 		}
 	}
+}
+
+void afficherTaxesParType(const Port port, size_t taille, TypeBateau type,
+								  TypeBateauMoteur typeMoteur) {
+	size_t nbBateaux = 0;
+	double* taxes = (double*) calloc(taille, sizeof(double));
+
+	if (!taxes) {
+		return;
+	}
+
+	for (size_t i = 0; i < taille; ++i) {
+		if (port[i].typeBateau == type) {
+			if (type == VOILIER ||
+				 port[i].specBateaux.bateauMoteur.typeBateauMoteur == typeMoteur) {
+				taxes[nbBateaux++] = calculerTaxeBateau(&port[i]);
+			}
+		}
+	}
+
+	taxes = (double*) realloc(taxes, nbBateaux * sizeof(double));
+
+	if (!taxes) {
+		return;
+	}
+
+	const char* strType;
+	if (type == VOILIER) {
+		strType = TYPE_BATEAU[VOILIER];
+	} else {
+		strType = TYPE_BATEAU_MOTEUR[typeMoteur];
+	}
+
+	puts(SEPARATEUR_STATS);
+	printf("%s\n", strType);
+	printf(FORMAT_MSG_STATS"%.2f %s\n",
+			 MSG_SOMME,
+			 calculerSomme(taxes, nbBateaux),
+			 METRIQUE_TAXE);
+	printf(FORMAT_MSG_STATS"%.2f %s\n",
+			 MSG_MOYENNE,
+			 calculerMoyenne(taxes, nbBateaux),
+			 METRIQUE_TAXE);
+	printf(FORMAT_MSG_STATS"%.2f %s\n",
+			 MSG_MEDIANE,
+			 calculerMediane(taxes, nbBateaux),
+			 METRIQUE_TAXE);
+	printf(FORMAT_MSG_STATS"%.2f %s\n",
+			 MSG_ECART,
+			 calculerEcartType(taxes, nbBateaux),
+			 METRIQUE_TAXE);
+	puts(SEPARATEUR_STATS);
+
+	free(taxes);
+	taxes = NULL;
 }

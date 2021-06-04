@@ -12,45 +12,43 @@
  -----------------------------------------------------------------------------------
 */
 
+#include <stdio.h>
 #include <stdlib.h>
 #include "bateau.h"
 #include "affichage.h"
-#include "taxes.h"
 
 int main() {
 	Port port = {
-		voilier("Going Merry", 120),
-		voilier("Thousand Sunny", 250),
-		bateauPlaisance("Titanic", 51000, "John Pierpont Morgan", (Longueur) 269),
-		bateauPeche("VLADIVOSTOK 2000", 4000, (CapaciteMaxPeche) 14000),
-		bateauPeche("GOLDEN ALASKA", 400, (CapaciteMaxPeche) 250),
+		voilier("voilier1", 120),
+		voilier("voilier2", 250),
+		voilier("voilier3", 12),
+		voilier("voilier4", 3500),
+		voilier("voilier5", 111),
+		bateauPlaisance("plaisance1", 51000, "John Pierpont Morgan", (Longueur) 269),
+		bateauPlaisance("plaisance2", 420, "M. Smith", (Longueur) 58),
+		bateauPlaisance("plaisance3", 1230, "John Doe", (Longueur) 127),
+		bateauPlaisance("plaisance4", 150, "Vessel company", (Longueur) 18),
+		bateauPeche("peche1", 4000, (CapaciteMaxPeche) 14000),
+		bateauPeche("peche2", 220, (CapaciteMaxPeche) 12),
+		bateauPeche("peche3", 250, (CapaciteMaxPeche) 40),
 	};
 
 	const size_t NB_BATEAUX = sizeof(port) / sizeof(Bateau);
 
-	TaxeBateau** taxes = calculerTaxesPort(port, NB_BATEAUX);
+	printf("================\n");
+	printf("Bateaux du port:\n");
+	printf("================\n\n");
+	afficherPort(port, NB_BATEAUX);
 
-	afficherPort(port, NB_BATEAUX, taxes);
-
-	// TODO:
-	// 3) afficher, par type de bateau (voilier, bateau de pêche, bateau de plaisance),
-	// la somme, la moyenne, la médiane et l'écart-type des taxes annuelles dues
-
-	/*
-	 * [
-	 * 	[voilier] = [1, 2, 3, 2276],
-	 * 	[peche] = [1, 2, 3, 2276],
-	 * 	[plaisance] = [1, 2, 3, 2276]
-	 * ]
-	 */
-
-	// TODO: comment trouver dynamiquement le nombre de types de bateaux différents
-	// (3 dans notre cas)
-
-	double** taxesParType = (double**) calloc(3, sizeof(double*));
-
-	// TODO: comment trouver la taille de chaque liste de chaque type
-
+	printf("================================\n");
+	printf("Statistiques par type de bateau:\n");
+	printf("================================\n\n");
+	// TODO: dernier param optionnel
+	afficherTaxesParType(port, NB_BATEAUX, VOILIER, 0);
+	printf("\n");
+	afficherTaxesParType(port, NB_BATEAUX, BATEAU_MOTEUR, PECHE);
+	printf("\n");
+	afficherTaxesParType(port, NB_BATEAUX, BATEAU_MOTEUR, PLAISANCE);
 
 	return EXIT_SUCCESS;
 }
