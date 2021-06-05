@@ -18,7 +18,8 @@
 
                   Les cas basiques (ex: liste contenant un seul élément) ont été
                   optimisés via des retours anticipés dans les diverses
-                  fonctions de calculs de statistiques.
+                  fonctions de calculs de statistiques afin d'éviter des calculs
+                  inutiles.
 
  Compilateur    : Mingw-w64 gcc 8.1.0
  -----------------------------------------------------------------------------------

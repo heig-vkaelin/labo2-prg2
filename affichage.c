@@ -7,8 +7,8 @@
  Description    : Implémentation de toutes les fonctions d'affichage de l'outil de
                   gestion de port.
 
- Remarque(s)    : Les différents messages sont tous modifiables via le fichier
-                  header.
+ Remarque(s)    : Les différents messages affichés dans la console sont tous
+                  modifiables via le fichier header.
 
                   Des cas "default" ont été ajoutés dans les conditions du switch
                   case sur les types de Bateaux pour deux raisons principales:
