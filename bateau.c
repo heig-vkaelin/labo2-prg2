@@ -4,7 +4,9 @@
  Auteur(s)      : Joel Dos Santos Matias, Géraud Silvestri, Valentin Kaelin
  Date creation  : 30.05.2021
 
- Description    : -
+ Description    : Implémentation des Bateaux, celle-ci consiste principalement à
+                  mettre à disposition plusieurs fonctions permettant de faciliter
+                  la création des différents types de Bateaux.
 
  Remarque(s)    : -
 

@@ -4,9 +4,13 @@
  Auteur(s)      : Joel Dos Santos Matias, Géraud Silvestri, Valentin Kaelin
  Date creation  : 30.05.2021
 
- Description    : -
+ Description    : Module mettant à disposition les bases nécessaires à la gestion
+                  du port. S'occupe de structurer les différents types de Bateaux du
+                  Port.
 
- Remarque(s)    : -
+ Remarque(s)    : Les taxes, étant des champs calculés, ne sont pas stockées
+                  directement dans la structure du Bateau. Il faut la calculer en
+                  utilisant les fonctions mises à disposition dans le module taxes.
 
  Compilateur    : Mingw-w64 gcc 8.1.0
  -----------------------------------------------------------------------------------

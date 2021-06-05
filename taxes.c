@@ -127,6 +127,7 @@ double* separerTaxesParType(const Port port, size_t* taille,
 	}
 
 	taxes = (double*) realloc(taxes, nbBateaux * sizeof(double));
+	// Vérification que la réallocation mémoire s'est bien déroulée
 	*taille = taxes ? nbBateaux : 0;
 
 	return taxes;

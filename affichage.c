@@ -6,7 +6,8 @@
 
  Description    : Implémentation de toutes les fonctions d'affichage.
 
- Remarque(s)    : -
+ Remarque(s)    : Les différents messages sont tous modifiables via le fichier
+                  header.
 
  Compilateur    : Mingw-w64 gcc 8.1.0
  -----------------------------------------------------------------------------------
