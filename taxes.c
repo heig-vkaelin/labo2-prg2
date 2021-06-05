@@ -118,13 +118,12 @@ double calculerEcartType(const double* liste, size_t taille) {
 		return 0;
 	}
 
-	double ecartType = 0;
-	double somme = calculerSomme(liste, taille);
-	double moyenne = somme / (double) taille;
+	double sommeEcartType = 0;
+	double moyenne = calculerMoyenne(liste, taille);
 	for (size_t i = 0; i < taille; ++i) {
-		ecartType += pow(liste[i] - moyenne, 2);
+		sommeEcartType += liste[i] * liste[i] - moyenne * moyenne;
 	}
-	return sqrt(ecartType / (double) taille);
+	return sqrt(sommeEcartType / (double) taille);
 }
 
 double* separerTaxesParType(const Port port, size_t* taille,

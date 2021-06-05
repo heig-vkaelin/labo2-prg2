@@ -63,8 +63,9 @@ double calculerSomme(const double* liste, size_t taille);
 double calculerMoyenne(const double* liste, size_t taille);
 
 /**
- * Calcule la médiane des taxes entrées en paramètre
- * @param liste : liste de taxes
+ * Calcule la médiane des taxes entrées en paramètre.
+ * @param liste : liste de taxes, elle sera triée par ordre croissant une fois la
+ * fonction exécutée.
  * @param taille : nombre de taxes
  * @return la médiane des taxes
  */
