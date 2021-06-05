@@ -4,7 +4,8 @@
  Auteur(s)      : Joel Dos Santos Matias, Géraud Silvestri, Valentin Kaelin
  Date creation  : 30.05.2021
 
- Description    : -
+ Description    : Module permettant d'afficher les diverses caractéristiques des
+                  Bateaux ainsi que des statistiques par type de Bateau.
 
  Remarque(s)    : -
 
@@ -34,7 +35,7 @@
 #define MSG_SOMME "Somme"
 #define MSG_MOYENNE "Moyenne"
 #define MSG_MEDIANE "Mediane"
-#define MSG_ECART "Ecart type"
+#define MSG_ECART_TYPE "Ecart type"
 
 #define METRIQUE_TAXE "Euros"
 #define METRIQUE_SURFACE "[m2]"
