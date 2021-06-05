@@ -34,20 +34,7 @@
 
 //typedef double Taxe;
 
-//typedef struct {
-//	const Bateau* bateau;
-//	double taxe;
-//} TaxeBateau;
-//
-typedef enum {
-	SOMME, MOYENNE, MEDIANNE, ECART_TYPE
-} Statistiques;
-
-//typedef TaxeBateau* TaxesPort;
-
 double calculerTaxeBateau(const Bateau* bateau);
-
-//void calculerTaxesPort(const Port port, size_t taille);
 
 double calculerSomme(const double* liste, size_t taille);
 
@@ -57,6 +44,7 @@ double calculerMediane(const double* liste, size_t taille);
 
 double calculerEcartType(const double* liste, size_t taille);
 
-//TaxeBateau** calculerTaxesPort_old(const Port port, size_t taille);
+double* separerTaxesParType(const Port port, size_t* taille,
+									 TypeBateau type, TypeBateauMoteur typeMoteur);
 
 #endif // PRG2_LABO2_TAXES_H

@@ -91,60 +91,26 @@ double calculerEcartType(const double* liste, size_t taille) {
 	return sqrt(ecartType / (double) taille);
 }
 
-//void calculerTaxesPort(const Port port, size_t taille) {
-//	size_t nbVoiliers = 0;
-//	double* taxesVoiliers = (double*) calloc(taille, sizeof(double));
-//	size_t nbPeches = 0;
-//	double* taxesPeches = (double*) calloc(taille, sizeof(double));
-//	size_t nbPlaisances = 0;
-//	double* taxesPlaisances = (double*) calloc(taille, sizeof(double));
-//
-//	for (size_t i = 0; i < taille; ++i) {
-//		switch (port[i].typeBateau) {
-//			case VOILIER:
-//				taxesVoiliers[nbVoiliers++] = calculerTaxeBateau(&port[i]);
-//				break;
-//			case BATEAU_MOTEUR:
-//				switch (port[i].specBateaux.bateauMoteur.typeBateauMoteur) {
-//					case PECHE:
-//						taxesPeches[nbPeches++] = calculerTaxeBateau(&port[i]);
-//						break;
-//					case PLAISANCE:
-//						taxesPlaisances[nbPlaisances++] = calculerTaxeBateau(&port[i]);
-//						break;
-//				}
-//				break;
-//		}
-//	}
-//
-//	taxesVoiliers = realloc(taxesVoiliers, nbVoiliers * sizeof(double));
-//	taxesPeches = realloc(taxesPeches, nbPeches * sizeof(double));
-//	taxesPlaisances = realloc(taxesPlaisances, nbPlaisances * sizeof(double));
-//
-////	afficherTaxesParType(taxesVoiliers, nbVoiliers, "Voiliers");
-////	afficherTaxesParType(taxesPeches, nbPeches, "Bateaux de peche");
-////	afficherTaxesParType(taxesPlaisances, nbPlaisances, "Bateaux de plaisance");
-//
-////	free(taxesVoiliers);
-////	free(taxesPeches);
-////	free(taxesPlaisances);
-//
-////	for (size_t i = 0; i < nbVoiliers; ++i) {
-////		printf("%g ", taxesVoiliers[i]);
-////	}
-////	printf("\n");
-//}
-//
-//TaxeBateau** calculerTaxesPort_old(const Port port, size_t taille) {
-//	TaxeBateau** taxes = (TaxeBateau**) calloc(taille, sizeof(TaxeBateau*));
-//	if (taxes) {
-//		for (size_t i = 0; i < taille; ++i) {
-//			taxes[i] = (TaxeBateau*) malloc(sizeof(TaxeBateau));
-//			if (taxes[i]) {
-//				taxes[i]->bateau = &port[i];
-//				taxes[i]->taxe = calculerTaxeBateau(&port[i]);
-//			}
-//		}
-//	}
-//	return taxes;
-//}
+double* separerTaxesParType(const Port port, size_t* taille,
+									 TypeBateau type, TypeBateauMoteur typeMoteur) {
+	size_t nbBateaux = 0;
+	double* taxes = (double*) calloc(*taille, sizeof(double));
+
+	if (!taxes) {
+		return NULL;
+	}
+
+	for (size_t i = 0; i < *taille; ++i) {
+		if (port[i].typeBateau == type) {
+			if (type == VOILIER ||
+				 port[i].specBateaux.bateauMoteur.typeBateauMoteur == typeMoteur) {
+				taxes[nbBateaux++] = calculerTaxeBateau(&port[i]);
+			}
+		}
+	}
+
+	taxes = (double*) realloc(taxes, nbBateaux * sizeof(double));
+	*taille = taxes ? nbBateaux : 0;
+
+	return taxes;
+}

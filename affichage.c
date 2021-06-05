@@ -78,23 +78,8 @@ void afficherPort(const Port port, size_t taille) {
 
 void afficherTaxesParType(const Port port, size_t taille, TypeBateau type,
 								  TypeBateauMoteur typeMoteur) {
-	size_t nbBateaux = 0;
-	double* taxes = (double*) calloc(taille, sizeof(double));
-
-	if (!taxes) {
-		return;
-	}
-
-	for (size_t i = 0; i < taille; ++i) {
-		if (port[i].typeBateau == type) {
-			if (type == VOILIER ||
-				 port[i].specBateaux.bateauMoteur.typeBateauMoteur == typeMoteur) {
-				taxes[nbBateaux++] = calculerTaxeBateau(&port[i]);
-			}
-		}
-	}
-
-	taxes = (double*) realloc(taxes, nbBateaux * sizeof(double));
+	size_t nbBateaux = taille;
+	double* taxes = separerTaxesParType(port, &nbBateaux, type, typeMoteur);
 
 	if (!taxes) {
 		return;
