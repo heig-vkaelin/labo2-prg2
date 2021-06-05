@@ -108,7 +108,7 @@ double calculerMediane(const double* liste, size_t taille) {
 	qsort((void*) liste, taille, sizeof(double), comparerDouble);
 	return taille % 2 ?
 			 liste[taille / 2] :
-			 (liste[taille / 2 - 1] + liste[taille / 2 + 1]) / 2.0;
+			 (liste[taille / 2 - 1] + liste[taille / 2]) / 2.0;
 }
 
 double calculerEcartType(const double* liste, size_t taille) {

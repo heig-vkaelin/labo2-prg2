@@ -29,11 +29,11 @@ int main() {
 		voilier("voilier3", 12),
 		voilier("voilier4", 3500),
 		voilier("voilier5", 111),
-		bateauPlaisance("plaisance1", 51000, "John Pierpont Morgan", (Longueur) 269),
+		bateauPlaisance("plaisance1", 51000, "John Pierpont Morgan", (Longueur) 255),
 		bateauPlaisance("plaisance2", 420, "M. Smith", (Longueur) 58),
 		bateauPlaisance("plaisance3", 1230, "John Doe", (Longueur) 127),
 		bateauPlaisance("plaisance4", 150, "Vessel company", (Longueur) 18),
-		bateauPeche("peche1", 4000, (CapaciteMaxPeche) 14000),
+		bateauPeche("peche1", 4000, (CapaciteMaxPeche) 250),
 		bateauPeche("peche2", 220, (CapaciteMaxPeche) 12),
 		bateauPeche("peche3", 250, (CapaciteMaxPeche) 40),
 	};
