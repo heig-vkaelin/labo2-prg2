@@ -4,13 +4,14 @@
  Auteur(s)      : Joel Dos Santos Matias, Géraud Silvestri, Valentin Kaelin
  Date creation  : 30.05.2021
 
- Description    : Programme principal testant l'implémentation le logiciel de
+ Description    : Programme principal montrant l'implémentation le logiciel de
                   gestion de port. Il est possible de créer des Bateaux de
                   différents types, d'afficher leurs caractéristiques ainsi que leur
                   taxe dans la console et finalement d'afficher quelques
                   statistiques par type de Bateau.
 
- Remarque(s)    : -
+ Remarque(s)    : Il ne s'agit pas d'un programme de test complet du logiciel mais
+                  uniquement d'un exemple de son utilisation.
 
  Compilateur    : Mingw-w64 gcc 8.1.0
  -----------------------------------------------------------------------------------

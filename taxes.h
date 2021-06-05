@@ -4,9 +4,14 @@
  Auteur(s)      : Joel Dos Santos Matias, Géraud Silvestri, Valentin Kaelin
  Date creation  : 30.05.2021
 
- Description    : -
+ Description    : Module permettant de calculer les taxes des différents types de
+                  Bateaux ainsi que diverses statistiques par type de Bateaux.
 
- Remarque(s)    : -
+                  Statistiques implémentées: somme, moyenne, médiane et écart-type
+
+ Remarque(s)    : Les différents seuils et valeurs des taxes peuvent tous être
+                  modifiés via la déclaration de constantes mais pas lors de
+                  l'exécution du programme.
 
  Compilateur    : Mingw-w64 gcc 8.1.0
  -----------------------------------------------------------------------------------

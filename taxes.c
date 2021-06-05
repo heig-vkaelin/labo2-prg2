@@ -4,9 +4,17 @@
  Auteur(s)      : Joel Dos Santos Matias, Géraud Silvestri, Valentin Kaelin
  Date creation  : 30.05.2021
 
- Description    : Implémentation
+ Description    : Implémentation des fonctions concernant les taxes des Bateaux du
+                  port.
 
- Remarque(s)    : Lors de la séparation des taxes par type, la bonne in
+ Remarque(s)    : Lors de la séparation des taxes par type, la vérification de
+                  que l'allocation mémoire est réussie est laissée au développeur.
+                  Dans le cas où on problème aurait été rencontré, NULL serait
+                  renvoyé.
+
+                  Les taxes sont représentées comme des nombres réels malgré le
+                  fait que nous utilisions uniquement des nombres entiers, par
+                  mesure d'évolutivité.
 
  Compilateur    : Mingw-w64 gcc 8.1.0
  -----------------------------------------------------------------------------------
