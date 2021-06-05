@@ -16,6 +16,10 @@
                   fait que nous utilisions uniquement des nombres entiers, par
                   mesure d'évolutivité.
 
+                  Les cas basiques (ex: liste contenant un seul élément) ont été
+                  optimisés via des retours anticipés dans les diverses
+                  fonctions de calculs de statistiques.
+
  Compilateur    : Mingw-w64 gcc 8.1.0
  -----------------------------------------------------------------------------------
 */
@@ -85,9 +89,8 @@ double calculerSomme(const double* liste, size_t taille) {
 
 double calculerMoyenne(const double* liste, size_t taille) {
 	assert(liste != NULL);
-	if (!taille) {
-		return 0;
-	} else if (taille == 1) {
+	assert(taille != 0);
+	if (taille == 1) {
 		return liste[0];
 	}
 
@@ -96,9 +99,8 @@ double calculerMoyenne(const double* liste, size_t taille) {
 
 double calculerMediane(const double* liste, size_t taille) {
 	assert(liste != NULL);
-	if (!taille) {
-		return 0;
-	} else if (taille == 1) {
+	assert(taille != 0);
+	if (taille == 1) {
 		return liste[0];
 	}
 
@@ -110,8 +112,8 @@ double calculerMediane(const double* liste, size_t taille) {
 
 double calculerEcartType(const double* liste, size_t taille) {
 	assert(liste != NULL);
-
-	if (taille < 2) {
+	assert(taille != 0);
+	if (taille == 1) {
 		return 0;
 	}
 

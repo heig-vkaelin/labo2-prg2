@@ -4,10 +4,19 @@
  Auteur(s)      : Joel Dos Santos Matias, Géraud Silvestri, Valentin Kaelin
  Date creation  : 30.05.2021
 
- Description    : Implémentation de toutes les fonctions d'affichage.
+ Description    : Implémentation de toutes les fonctions d'affichage de l'outil de
+                  gestion de port.
 
  Remarque(s)    : Les différents messages sont tous modifiables via le fichier
                   header.
+
+                  Des cas "default" ont été ajoutés dans les conditions du switch
+                  case sur les types de Bateaux pour deux raisons principales:
+                  - Si l'utilisateur cast une valeur incorrecte en type de bateau,
+                    le programme affichera une erreur.
+                  - Si dans le futur un nouveau type de Bateau est ajouté, une
+                    erreur surviendra si les switch case n'ont pas été adaptés pour
+                    prendre en compte ce nouveau type.
 
  Compilateur    : Mingw-w64 gcc 8.1.0
  -----------------------------------------------------------------------------------
