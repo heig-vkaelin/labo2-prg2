@@ -1,12 +1,12 @@
 /*
  -----------------------------------------------------------------------------------
  Nom du fichier : taxes.c
- Auteur(s)      : Joel Dos Santos Matias, Géraud Silvestri, Valentin Kaelin,
+ Auteur(s)      : Joel Dos Santos Matias, Géraud Silvestri, Valentin Kaelin
  Date creation  : 30.05.2021
 
- Description    : -
+ Description    : Implémentation
 
- Remarque(s)    : -
+ Remarque(s)    : Lors de la séparation des taxes par type, la bonne in
 
  Compilateur    : Mingw-w64 gcc 8.1.0
  -----------------------------------------------------------------------------------
@@ -14,11 +14,24 @@
 
 #include <stdlib.h>
 #include <math.h>
-#include "assert.h"
+#include <assert.h>
 #include "taxes.h"
 
+/**
+ * Fonction de comparaison de double utilisée dans l'algorithme de tri quick sort
+ */
+int cmpfunc(const void* a, const void* b) {
+	assert(a != NULL && b != NULL);
+	if (*(double*) a > *(double*) b)
+		return 1;
+	else if (*(double*) a < *(double*) b)
+		return -1;
+	else
+		return 0;
+}
+
 double calculerTaxeBateau(const Bateau* bateau) {
-	assert(bateau);
+	assert(bateau != NULL);
 	double taxe;
 	switch (bateau->typeBateau) {
 		case VOILIER:
@@ -48,6 +61,7 @@ double calculerTaxeBateau(const Bateau* bateau) {
 }
 
 double calculerSomme(const double* liste, size_t taille) {
+	assert(liste != NULL);
 	double somme = 0;
 	for (size_t i = 0; i < taille; ++i) {
 		somme += liste[i];
@@ -56,19 +70,12 @@ double calculerSomme(const double* liste, size_t taille) {
 }
 
 double calculerMoyenne(const double* liste, size_t taille) {
+	assert(liste != NULL);
 	return calculerSomme(liste, taille) / (double) taille;
 }
 
-int cmpfunc(const void* a, const void* b) {
-	if (*(double*) a > *(double*) b)
-		return 1;
-	else if (*(double*) a < *(double*) b)
-		return -1;
-	else
-		return 0;
-}
-
 double calculerMediane(const double* liste, size_t taille) {
+	assert(liste != NULL);
 	if (!taille) {
 		return 0;
 	} else if (taille == 1) {
@@ -82,6 +89,7 @@ double calculerMediane(const double* liste, size_t taille) {
 }
 
 double calculerEcartType(const double* liste, size_t taille) {
+	assert(liste != NULL);
 	double ecartType = 0;
 	double somme = calculerSomme(liste, taille);
 	double moyenne = somme / (double) taille;
@@ -93,6 +101,7 @@ double calculerEcartType(const double* liste, size_t taille) {
 
 double* separerTaxesParType(const Port port, size_t* taille,
 									 TypeBateau type, TypeBateauMoteur typeMoteur) {
+	assert(port != NULL && taille != NULL);
 	size_t nbBateaux = 0;
 	double* taxes = (double*) calloc(*taille, sizeof(double));
 

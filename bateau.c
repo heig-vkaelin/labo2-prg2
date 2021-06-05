@@ -1,7 +1,7 @@
 /*
  -----------------------------------------------------------------------------------
  Nom du fichier : bateau.c
- Auteur(s)      : Joel Dos Santos Matias, Géraud Silvestri, Valentin Kaelin,
+ Auteur(s)      : Joel Dos Santos Matias, Géraud Silvestri, Valentin Kaelin
  Date creation  : 30.05.2021
 
  Description    : -
@@ -12,6 +12,7 @@
  -----------------------------------------------------------------------------------
 */
 
+#include <assert.h>
 #include "bateau.h"
 
 const char* const TYPE_BATEAU[] = {"Voilier", "Bateau a moteur"};
@@ -20,11 +21,13 @@ const char* const TYPE_BATEAU_MOTEUR[] = {
 };
 
 Bateau voilier(Nom nom, SurfaceVoile surfaceVoile) {
+	assert(nom != NULL);
 	return (Bateau) {nom, VOILIER, {{surfaceVoile}}};
 }
 
 Bateau bateauPeche(Nom nom, PuissanceMoteur puissanceMoteur,
 						 CapaciteMaxPeche capaciteMaxPeche) {
+	assert(nom != NULL);
 	return (Bateau) {
 		nom,
 		BATEAU_MOTEUR,
@@ -38,6 +41,7 @@ Bateau bateauPeche(Nom nom, PuissanceMoteur puissanceMoteur,
 
 Bateau bateauPlaisance(Nom nom, PuissanceMoteur puissanceMoteur,
 							  Nom nomProprietaire, Longueur longueur) {
+	assert(nom != NULL && nomProprietaire != NULL);
 	return (Bateau) {
 		nom,
 		BATEAU_MOTEUR,

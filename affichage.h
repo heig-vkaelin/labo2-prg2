@@ -1,7 +1,7 @@
 /*
  -----------------------------------------------------------------------------------
  Nom du fichier : affichage.h
- Auteur(s)      : Joel Dos Santos Matias, Géraud Silvestri, Valentin Kaelin,
+ Auteur(s)      : Joel Dos Santos Matias, Géraud Silvestri, Valentin Kaelin
  Date creation  : 30.05.2021
 
  Description    : -

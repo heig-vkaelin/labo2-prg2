@@ -1,10 +1,14 @@
 /*
  -----------------------------------------------------------------------------------
  Nom du fichier : main.c
- Auteur(s)      : Joel Dos Santos Matias, Géraud Silvestri, Valentin Kaelin,
+ Auteur(s)      : Joel Dos Santos Matias, Géraud Silvestri, Valentin Kaelin
  Date creation  : 30.05.2021
 
- Description    : Programme principal testant l'implémentation de
+ Description    : Programme principal testant l'implémentation le logiciel de
+                  gestion de port. Il est possible de créer des Bateaux de
+                  différents types, d'afficher leurs caractéristiques ainsi que leur
+                  taxe dans la console et finalement d'afficher quelques
+                  statistiques par type de Bateau.
 
  Remarque(s)    : -
 

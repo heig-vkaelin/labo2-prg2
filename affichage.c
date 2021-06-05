@@ -1,7 +1,7 @@
 /*
  -----------------------------------------------------------------------------------
  Nom du fichier : affichage.c
- Auteur(s)      : Joel Dos Santos Matias, Géraud Silvestri, Valentin Kaelin,
+ Auteur(s)      : Joel Dos Santos Matias, Géraud Silvestri, Valentin Kaelin
  Date creation  : 30.05.2021
 
  Description    : -
@@ -14,12 +14,12 @@
 
 #include <stdio.h>
 #include <string.h>
+#include "assert.h"
 #include "affichage.h"
 #include "taxes.h"
 
 void afficherBateau(const Bateau* bateau) {
-	if (!bateau) { return; }
-
+	assert(bateau != NULL);
 	puts(SEPARATEUR);
 	printf(FORMAT_MSG "%s\n", MSG_NOM, bateau->nom);
 	printf(FORMAT_MSG "%g %s\n", MSG_TAXE, calculerTaxeBateau(bateau), METRIQUE_TAXE);
@@ -68,16 +68,16 @@ void afficherBateau(const Bateau* bateau) {
 }
 
 void afficherPort(const Port port, size_t taille) {
-	if (port) {
-		for (size_t i = 0; i < taille; ++i) {
-			afficherBateau(&port[i]);
-			printf("\n");
-		}
+	assert(port != NULL);
+	for (size_t i = 0; i < taille; ++i) {
+		afficherBateau(&port[i]);
+		printf("\n");
 	}
 }
 
 void afficherStatsParType(const Port port, size_t taille, TypeBateau type,
 								  TypeBateauMoteur typeMoteur) {
+	assert(port != NULL);
 	size_t nbBateaux = taille;
 	double* taxes = separerTaxesParType(port, &nbBateaux, type, typeMoteur);
 
