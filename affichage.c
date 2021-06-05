@@ -16,6 +16,7 @@
 #include <stdio.h>
 #include <assert.h>
 #include <inttypes.h>
+#include <stdbool.h>
 #include "affichage.h"
 #include "taxes.h"
 
@@ -62,8 +63,12 @@ void afficherBateau(const Bateau* bateau) {
 								 .bateauPlaisance.longueur,
 							 METRIQUE_LONGUEUR);
 					break;
+				default:
+					assert(!(bool) "Le type de Bateau à moteur n'existe pas.");
 			}
 			break;
+		default:
+			assert(!(bool) "Le type de Bateau n'existe pas.");
 	}
 	puts(SEPARATEUR);
 }

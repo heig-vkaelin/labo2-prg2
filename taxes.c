@@ -23,6 +23,7 @@
 #include <stdlib.h>
 #include <math.h>
 #include <assert.h>
+#include <stdbool.h>
 #include "taxes.h"
 
 /**
@@ -62,8 +63,12 @@ double calculerTaxeBateau(const Bateau* bateau) {
 							  bateau->specBateaux.bateauMoteur.specBateauMoteur
 								  .bateauPlaisance.longueur;
 					break;
+				default:
+					assert(!(bool) "Le type de Bateau à moteur n'existe pas.");
 			}
 			break;
+		default:
+			assert(!(bool) "Le type de Bateau n'existe pas.");
 	}
 	return taxe;
 }
