@@ -42,11 +42,27 @@
 #define METRIQUE_CAPACITE "[t]"
 #define METRIQUE_LONGUEUR "[m]"
 
+/**
+ * Affiche les caractéristiques d'un Bateau dans la console
+ * @param bateau
+ */
 void afficherBateau(const Bateau* bateau);
 
+/**
+ * Affiche les caractéristiques de tous les Bateaux du port dans la console
+ * @param port : tableau de Bateaux
+ * @param taille : nombre de bateaux dans le port
+ */
 void afficherPort(const Port port, size_t taille);
 
-void afficherTaxesParType(const Port port, size_t taille, TypeBateau type,
+/**
+ * Affiche de multiples statistiques sur le type de Bateaux voulu
+ * @param port : tableau de Bateaux
+ * @param taille : nombre de Bateaux dans le port
+ * @param type : type du Bateau
+ * @param typeMoteur : sous catégorie du Bateau si celui-ci est un Bateau à moteur
+ */
+void afficherStatsParType(const Port port, size_t taille, TypeBateau type,
 								  TypeBateauMoteur typeMoteur);
 
 #endif // PRG2_LABO2_AFFICHAGE_H

@@ -76,7 +76,7 @@ void afficherPort(const Port port, size_t taille) {
 	}
 }
 
-void afficherTaxesParType(const Port port, size_t taille, TypeBateau type,
+void afficherStatsParType(const Port port, size_t taille, TypeBateau type,
 								  TypeBateauMoteur typeMoteur) {
 	size_t nbBateaux = taille;
 	double* taxes = separerTaxesParType(port, &nbBateaux, type, typeMoteur);

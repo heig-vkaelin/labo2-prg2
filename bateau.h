@@ -69,11 +69,32 @@ typedef struct {
 
 typedef Bateau Port[];
 
+/**
+ * Fonction permettant de construire un bateau de type voilier
+ * @param nom : nom du bateau
+ * @param surfaceVoile : surface de la voile en mètres-carrés
+ * @return la structure du bateau
+ */
 Bateau voilier(Nom nom, SurfaceVoile surfaceVoile);
 
+/**
+ * Fonction permettant de construire un bateau à moteur de pêche
+ * @param nom : nom du bateau
+ * @param puissanceMoteur : en nombre de chevaux
+ * @param capaciteMaxPeche : en tonnes
+ * @return la structure du bateau
+ */
 Bateau bateauPeche(Nom nom, PuissanceMoteur puissanceMoteur,
 						 CapaciteMaxPeche capaciteMaxPeche);
 
+/**
+ * Fonction permettant de construire un bateau à moteur de plaisance
+ * @param nom : nom du bateau
+ * @param puissanceMoteur  : en nombre de chevaux
+ * @param nomProprietaire : nom du propriétaire
+ * @param longueur : en mètres
+ * @return la structure du bateau
+ */
 Bateau bateauPlaisance(Nom nom, PuissanceMoteur puissanceMoteur,
 							  Nom nomProprietaire, Longueur longueur);
 

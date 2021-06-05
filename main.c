@@ -4,7 +4,7 @@
  Auteur(s)      : Joel Dos Santos Matias, Géraud Silvestri, Valentin Kaelin,
  Date creation  : 30.05.2021
 
- Description    : Programme principal ...
+ Description    : Programme principal testant l'implémentation de
 
  Remarque(s)    : -
 
@@ -44,11 +44,11 @@ int main() {
 	printf("Statistiques par type de bateau:\n");
 	printf("================================\n\n");
 	// TODO: dernier param optionnel
-	afficherTaxesParType(port, NB_BATEAUX, VOILIER, 0);
+	afficherStatsParType(port, NB_BATEAUX, VOILIER, 0);
 	printf("\n");
-	afficherTaxesParType(port, NB_BATEAUX, BATEAU_MOTEUR, PECHE);
+	afficherStatsParType(port, NB_BATEAUX, BATEAU_MOTEUR, PECHE);
 	printf("\n");
-	afficherTaxesParType(port, NB_BATEAUX, BATEAU_MOTEUR, PLAISANCE);
+	afficherStatsParType(port, NB_BATEAUX, BATEAU_MOTEUR, PLAISANCE);
 
 	return EXIT_SUCCESS;
 }
