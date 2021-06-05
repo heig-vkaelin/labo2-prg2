@@ -27,9 +27,10 @@
 #include "taxes.h"
 
 /**
- * Fonction de comparaison de double utilisée dans l'algorithme de tri quick sort
+ * Fonction interne de comparaison de double utilisée dans l'algorithme de tri
+ * quick sort.
  */
-int cmpfunc(const void* a, const void* b) {
+int comparerDouble(const void* a, const void* b) {
 	assert(a != NULL && b != NULL);
 	if (*(double*) a > *(double*) b)
 		return 1;
@@ -84,6 +85,12 @@ double calculerSomme(const double* liste, size_t taille) {
 
 double calculerMoyenne(const double* liste, size_t taille) {
 	assert(liste != NULL);
+	if (!taille) {
+		return 0;
+	} else if (taille == 1) {
+		return liste[0];
+	}
+
 	return calculerSomme(liste, taille) / (double) taille;
 }
 
@@ -95,7 +102,7 @@ double calculerMediane(const double* liste, size_t taille) {
 		return liste[0];
 	}
 
-	qsort((void*) liste, taille, sizeof(double), cmpfunc);
+	qsort((void*) liste, taille, sizeof(double), comparerDouble);
 	return taille % 2 ?
 			 liste[taille / 2] :
 			 (liste[taille / 2 - 1] + liste[taille / 2 + 1]) / 2.0;
@@ -103,6 +110,11 @@ double calculerMediane(const double* liste, size_t taille) {
 
 double calculerEcartType(const double* liste, size_t taille) {
 	assert(liste != NULL);
+
+	if (taille < 2) {
+		return 0;
+	}
+
 	double ecartType = 0;
 	double somme = calculerSomme(liste, taille);
 	double moyenne = somme / (double) taille;
