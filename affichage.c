@@ -90,22 +90,29 @@ void afficherPort(const Port port, size_t taille) {
 	}
 }
 
-void afficherStatsParType(const Port port, size_t taille, TypeBateau type,
-								  TypeBateauMoteur typeMoteur) {
+void afficherStatsParType(const Port port, size_t taille,
+								  bool (* condition)(const Bateau*)) {
 	assert(port != NULL);
 	size_t nbBateaux = taille;
-	double* taxes = separerTaxesParType(port, &nbBateaux, type, typeMoteur);
+	double* taxes = separerTaxesParType(port, &nbBateaux, condition);
 
 	if (!taxes) {
 		return;
 	}
 
-	const char* strType;
-	if (type == VOILIER) {
-		strType = TYPE_BATEAU[VOILIER];
-	} else {
-		strType = TYPE_BATEAU_MOTEUR[typeMoteur];
+	const char* strType = "Todo";
+//	if (type == VOILIER) {
+//		strType = TYPE_BATEAU[VOILIER];
+//	} else {
+//		strType = TYPE_BATEAU_MOTEUR[typeMoteur];
+//	}
+
+	// TODO: remove DEBUG
+	printf("%s\n", strType);
+	for (size_t i = 0; i < nbBateaux; ++i) {
+		printf("%g ", taxes[i]);
 	}
+	printf("\n");
 
 	puts(SEPARATEUR_STATS);
 	printf("%s\n", strType);
