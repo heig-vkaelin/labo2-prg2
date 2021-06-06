@@ -19,7 +19,7 @@
 
 const char* const TYPE_BATEAU[] = {"Voilier", "Bateau a moteur"};
 const char* const TYPE_BATEAU_MOTEUR[] = {
-	"Bateau a moteur de peche", "Bateau a moteur de plaisance"
+	"Bateau de peche", "Bateau de plaisance"
 };
 
 Bateau voilier(Nom nom, SurfaceVoile surfaceVoile) {

@@ -33,11 +33,10 @@ void afficherBateau(const Bateau* bateau) {
 	assert(bateau != NULL);
 	puts(SEPARATEUR);
 	printf(FORMAT_MSG "%s\n", MSG_NOM, bateau->nom);
-	printf(FORMAT_MSG "%g %s\n", MSG_TAXE, calculerTaxeBateau(bateau), METRIQUE_TAXE);
+	printf(FORMAT_MSG "%s\n", MSG_TYPE, TYPE_BATEAU[bateau->typeBateau]);
 
 	switch (bateau->typeBateau) {
 		case VOILIER:
-			printf(FORMAT_MSG "%s\n", MSG_TYPE, TYPE_BATEAU[VOILIER]);
 			printf(FORMAT_MSG"%"PRIu16" %s\n",
 					 MSG_SURFACE,
 					 bateau->specBateaux.voilier.surfaceVoile,
@@ -45,7 +44,7 @@ void afficherBateau(const Bateau* bateau) {
 			break;
 		case BATEAU_MOTEUR:
 			printf(FORMAT_MSG"%s\n",
-					 MSG_TYPE,
+					 MSG_TYPE_MOTEUR,
 					 TYPE_BATEAU_MOTEUR[
 						 bateau->specBateaux.bateauMoteur.typeBateauMoteur
 					 ]);
@@ -79,6 +78,7 @@ void afficherBateau(const Bateau* bateau) {
 		default:
 			assert(!(bool) "Le type de Bateau n'existe pas.");
 	}
+	printf(FORMAT_MSG "%g %s\n", MSG_TAXE, calculerTaxeBateau(bateau), METRIQUE_TAXE);
 	puts(SEPARATEUR);
 }
 

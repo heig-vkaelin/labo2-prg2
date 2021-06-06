@@ -24,6 +24,7 @@
 #define MSG_NOM "Nom"
 #define MSG_TAXE "Taxe"
 #define MSG_TYPE "Categorie"
+#define MSG_TYPE_MOTEUR "Sous-categorie"
 #define MSG_SURFACE "Surface de la voile"
 #define MSG_PUISSANCE "Puissance du moteur"
 #define MSG_CAPACITE "Capacite max de peche"
