@@ -89,6 +89,6 @@ double calculerEcartType(const double* liste, size_t taille);
  * @return la liste des taxes
  */
 double* separerTaxesParType(const Port port, size_t* taille,
-									 TypeBateau type, TypeBateauMoteur typeMoteur);
+									 bool (* condition)(const Bateau*));
 
 #endif // PRG2_LABO2_TAXES_H

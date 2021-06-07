@@ -64,7 +64,7 @@ void afficherPort(const Port port, size_t taille);
  * @param type : type du Bateau
  * @param typeMoteur : sous catégorie du Bateau si celui-ci est un Bateau à moteur
  */
-void afficherStatsParType(const Port port, size_t taille, TypeBateau type,
-								  TypeBateauMoteur typeMoteur);
+void afficherStatsParType(const Port port, size_t taille,
+								  bool (* condition)(const Bateau*));
 
 #endif // PRG2_LABO2_AFFICHAGE_H

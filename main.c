@@ -19,8 +19,23 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <stdbool.h>
 #include "bateau.h"
 #include "affichage.h"
+
+bool estVoilier(const Bateau* bateau) {
+	return bateau != NULL && bateau->typeBateau == VOILIER;
+}
+
+bool estBateauPlaisance(const Bateau* bateau) {
+	return bateau != NULL && bateau->typeBateau == BATEAU_MOTEUR
+			 && bateau->specBateaux.bateauMoteur.typeBateauMoteur == PLAISANCE;
+}
+
+bool estBateauPeche(const Bateau* bateau) {
+	return bateau != NULL && bateau->typeBateau == BATEAU_MOTEUR
+			 && bateau->specBateaux.bateauMoteur.typeBateauMoteur == PECHE;
+}
 
 int main() {
 	Port port = {
@@ -29,13 +44,23 @@ int main() {
 		voilier("voilier3", 12),
 		voilier("voilier4", 3500),
 		voilier("voilier5", 111),
-		bateauPlaisance("plaisance1", 51000, "John Pierpont Morgan", 255),
-		bateauPlaisance("plaisance2", 420, "M. Smith", 58),
-		bateauPlaisance("plaisance3", 1230, "John Doe", 127),
-		bateauPlaisance("plaisance4", 150, "Vessel company", 18),
-		bateauPeche("peche1", 4000, 250),
-		bateauPeche("peche2", 220, 12),
-		bateauPeche("peche3", 250, 40),
+//		bateauPlaisance("plaisance1", 51000, "John Pierpont Morgan", 255),
+//		bateauPlaisance("plaisance2", 420, "M. Smith", 58),
+//		bateauPlaisance("plaisance3", 1230, "John Doe", 127),
+//		bateauPlaisance("plaisance4", 150, "Vessel company", 18),
+//		bateauPeche("peche1", 4000, 250),
+//		bateauPeche("peche2", 220, 12),
+//		bateauPeche("peche3", 250, 40),
+
+		bateauPlaisance("Titanic", 46000, "John Pierpont Morgan", 255),
+		bateauPlaisance("Pilar", 50, "Ernest Hemingway", 38),
+		bateauPlaisance("Spirit of Australia", 100, "Ken Warby", 10),
+		bateauPlaisance("Queen Mary", 16000, "Jack Wrather", 255),
+
+		bateauPeche("Angoumois", 200, 15),
+		bateauPeche("Marie-Louise", 150, 10),
+		bateauPeche("Sainte-Bernadette", 100, 20),
+		bateauPeche("Amphitrite", 200, 25)
 	};
 
 	const size_t NB_BATEAUX = sizeof(port) / sizeof(Bateau);
@@ -49,11 +74,11 @@ int main() {
 	printf("Statistiques par type de bateau:\n");
 	printf("================================\n\n");
 	// TODO: dernier param optionnel
-	afficherStatsParType(port, NB_BATEAUX, VOILIER, 0);
+	afficherStatsParType(port, NB_BATEAUX, estVoilier);
 	printf("\n");
-	afficherStatsParType(port, NB_BATEAUX, BATEAU_MOTEUR, PECHE);
+	afficherStatsParType(port, NB_BATEAUX, estBateauPeche);
 	printf("\n");
-	afficherStatsParType(port, NB_BATEAUX, BATEAU_MOTEUR, PLAISANCE);
+	afficherStatsParType(port, NB_BATEAUX, estBateauPlaisance);
 
 	return EXIT_SUCCESS;
 }
