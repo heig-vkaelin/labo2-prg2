@@ -4,7 +4,7 @@
  Auteur(s)      : Joel Dos Santos Matias, Géraud Silvestri, Valentin Kaelin
  Date creation  : 30.05.2021
 
- Description    : Mets à disposition les bases nécessaires à la gestion du port.
+ Description    : Met à disposition les bases nécessaires à la gestion du port.
                   Structure les différents types de Bateaux du Port.                  
 
  Remarque(s)    : Les taxes, étant des champs calculés, ne sont pas stockées

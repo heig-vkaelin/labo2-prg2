@@ -7,7 +7,7 @@
  Description    : Programme principal montrant l'implémentation du logiciel de
                   gestion de port. Il est possible de créer des Bateaux de
                   différents types, d'afficher leurs caractéristiques ainsi que leur
-                  taxes dans la console et finalement d'afficher quelques
+                  taxe dans la console et finalement d'afficher quelques
                   statistiques par type de Bateau.
 
  Remarque(s)    : Il ne s'agit pas d'un programme de test complet du logiciel, mais
