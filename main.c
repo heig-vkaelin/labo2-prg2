@@ -50,10 +50,10 @@ int main() {
 	printf("================================\n\n");
 	afficherStatsParType(port, NB_BATEAUX, TYPE_BATEAU[VOILIER], estVoilier);
 	printf("\n");
-	afficherStatsParType(port, NB_BATEAUX, TYPE_BATEAU_MOTEUR[PECHE], estBateauPeche);
-	printf("\n");
 	afficherStatsParType(port, NB_BATEAUX, TYPE_BATEAU_MOTEUR[PLAISANCE],
 								estBateauPlaisance);
+	printf("\n");
+	afficherStatsParType(port, NB_BATEAUX, TYPE_BATEAU_MOTEUR[PECHE], estBateauPeche);
 
 	return EXIT_SUCCESS;
 }

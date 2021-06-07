@@ -101,7 +101,7 @@ void afficherStatsParType(const Port port, size_t taille, Nom nomCategorie,
 	}
 
 	puts(SEPARATEUR_STATS);
-	puts(nomCategorie);
+	printf(TITRE_STATS"%s\n", nomCategorie);
 	printf(FORMAT_MSG_STATS"%.2f %s\n",
 			 MSG_SOMME,
 			 calculerSomme(taxes, nbBateaux),

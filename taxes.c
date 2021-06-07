@@ -16,11 +16,6 @@
                   fait que nous utilisions uniquement des nombres entiers, par
                   mesure d'évolutivité.
 
-                  Les cas basiques (ex: liste contenant un seul élément) ont été
-                  optimisés via des retours anticipés dans les diverses
-                  fonctions de calculs de statistiques afin d'éviter des calculs
-                  inutiles.
-
  Compilateur    : Mingw-w64 gcc 8.1.0
  -----------------------------------------------------------------------------------
 */
@@ -81,6 +76,7 @@ double calculerTaxeBateau(const Bateau* bateau) {
 
 double calculerSomme(const double* liste, size_t taille) {
 	assert(liste != NULL);
+
 	double somme = 0;
 	for (size_t i = 0; i < taille; ++i) {
 		somme += liste[i];
@@ -91,9 +87,6 @@ double calculerSomme(const double* liste, size_t taille) {
 double calculerMoyenne(const double* liste, size_t taille) {
 	assert(liste != NULL);
 	assert(taille != 0);
-	if (taille == 1) {
-		return liste[0];
-	}
 
 	return calculerSomme(liste, taille) / (double) taille;
 }
@@ -101,9 +94,6 @@ double calculerMoyenne(const double* liste, size_t taille) {
 double calculerMediane(const double* liste, size_t taille) {
 	assert(liste != NULL);
 	assert(taille != 0);
-	if (taille == 1) {
-		return liste[0];
-	}
 
 	qsort((void*) liste, taille, sizeof(double), comparerDouble);
 	return taille % 2 ?
@@ -114,9 +104,6 @@ double calculerMediane(const double* liste, size_t taille) {
 double calculerEcartType(const double* liste, size_t taille) {
 	assert(liste != NULL);
 	assert(taille != 0);
-	if (taille == 1) {
-		return 0;
-	}
 
 	double sommeEcartType = 0;
 	double moyenne = calculerMoyenne(liste, taille);

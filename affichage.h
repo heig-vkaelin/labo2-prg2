@@ -32,7 +32,8 @@
 #define MSG_LONGUEUR "Longueur"
 
 #define FORMAT_MSG_STATS "%-14s : "
-#define SEPARATEUR_STATS "-----------------------------"
+#define TITRE_STATS "Stats - "
+#define SEPARATEUR_STATS "------------------------------"
 #define MSG_SOMME "Somme"
 #define MSG_MOYENNE "Moyenne"
 #define MSG_MEDIANE "Mediane"
