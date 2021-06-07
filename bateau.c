@@ -53,3 +53,17 @@ Bateau bateauPlaisance(Nom nom, PuissanceMoteur puissanceMoteur,
 		}}
 	};
 }
+
+bool estVoilier(const Bateau* bateau) {
+	return bateau != NULL && bateau->typeBateau == VOILIER;
+}
+
+bool estBateauPlaisance(const Bateau* bateau) {
+	return bateau != NULL && bateau->typeBateau == BATEAU_MOTEUR
+			 && bateau->specBateaux.bateauMoteur.typeBateauMoteur == PLAISANCE;
+}
+
+bool estBateauPeche(const Bateau* bateau) {
+	return bateau != NULL && bateau->typeBateau == BATEAU_MOTEUR
+			 && bateau->specBateaux.bateauMoteur.typeBateauMoteur == PECHE;
+}

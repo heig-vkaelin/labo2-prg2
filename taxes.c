@@ -127,8 +127,8 @@ double calculerEcartType(const double* liste, size_t taille) {
 }
 
 double* separerTaxesParType(const Port port, size_t* taille,
-									 bool (* condition)(const Bateau*)) {
-	assert(port != NULL && taille != NULL);
+									 VerificationType condition) {
+	assert(port != NULL && condition != NULL && taille != NULL);
 	size_t nbBateaux = 0;
 	double* taxes = (double*) calloc(*taille, sizeof(double));
 
@@ -137,12 +137,6 @@ double* separerTaxesParType(const Port port, size_t* taille,
 	}
 
 	for (size_t i = 0; i < *taille; ++i) {
-//		if (port[i].typeBateau == type) {
-//			if (type == VOILIER ||
-//				 port[i].specBateaux.bateauMoteur.typeBateauMoteur == typeMoteur) {
-//				taxes[nbBateaux++] = calculerTaxeBateau(&port[i]);
-//			}
-//		}
 		if (condition(&port[i])) {
 			taxes[nbBateaux++] = calculerTaxeBateau(&port[i]);
 		}

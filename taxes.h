@@ -37,8 +37,6 @@
 #define TAXE_PLAISANCE_MULTIPLICATEUR_HAUT 15.0
 #define TAXE_PLAISANCE_SEUIL 100
 
-// typedef double Taxe;
-
 /**
  * Calcule la taxe du Bateau en fonction de ses caractéristiques
  * @param bateau
@@ -84,11 +82,10 @@ double calculerEcartType(const double* liste, size_t taille);
  * @param port : tableau de Bateaux
  * @param taille : nombre de Bateaux du port, est modifiée par la fonction pour
  * correspondre au nombre de Bateaux du type voulu
- * @param type : type du Bateau
- * @param typeMoteur : sous catégorie du Bateau si celui-ci est un Bateau à moteur
+ * @param condition : pointeur sur une fonction vérifiant le type de Bateau souhaité
  * @return la liste des taxes
  */
 double* separerTaxesParType(const Port port, size_t* taille,
-									 bool (* condition)(const Bateau*));
+									 VerificationType condition);
 
 #endif // PRG2_LABO2_TAXES_H

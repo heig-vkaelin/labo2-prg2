@@ -20,7 +20,7 @@
 #include "bateau.h"
 
 #define FORMAT_MSG "%-21s : "
-#define SEPARATEUR "-----------------------------------------------------"
+#define SEPARATEUR "-------------------------------------------"
 #define MSG_NOM "Nom"
 #define MSG_TAXE "Taxe"
 #define MSG_TYPE "Categorie"
@@ -58,13 +58,13 @@ void afficherBateau(const Bateau* bateau);
 void afficherPort(const Port port, size_t taille);
 
 /**
- * Affiche de multiples statistiques sur le type de Bateaux voulu
+ * Affiche des diverses statistiques sur le type de Bateaux voulu
  * @param port : tableau de Bateaux
  * @param taille : nombre de Bateaux dans le port
- * @param type : type du Bateau
- * @param typeMoteur : sous catégorie du Bateau si celui-ci est un Bateau à moteur
+ * @param nomCategorie : nom de la catégorie à afficher
+ * @param condition : pointeur sur une fonction vérifiant le type de Bateau souhaité
  */
-void afficherStatsParType(const Port port, size_t taille,
-								  bool (* condition)(const Bateau*));
+void afficherStatsParType(const Port port, size_t taille, Nom nomCategorie,
+								  VerificationType condition);
 
 #endif // PRG2_LABO2_AFFICHAGE_H

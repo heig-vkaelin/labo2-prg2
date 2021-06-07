@@ -19,6 +19,7 @@
 #define PRG2_LABO2_BATEAU_H
 
 #include <stdint.h>
+#include <stdbool.h>
 
 typedef const char* Nom;
 typedef enum {
@@ -100,5 +101,31 @@ Bateau bateauPeche(Nom nom, PuissanceMoteur puissanceMoteur,
  */
 Bateau bateauPlaisance(Nom nom, PuissanceMoteur puissanceMoteur,
 							  Nom nomProprietaire, Longueur longueur);
+
+/**
+ * Signatures des fonctions servant à vérifier le type d'un Bateau
+ */
+typedef bool (* VerificationType)(const Bateau*);
+
+/**
+ * Vérifie que le Bateau entré en paramètre est un voilier
+ * @param bateau
+ * @return true si le Bateau est bien un voilier, false autrement
+ */
+bool estVoilier(const Bateau* bateau);
+
+/**
+ * Vérifie que le Bateau entré en paramètre est un Bateau de plaisance
+ * @param bateau
+ * @return true si le Bateau est bien un Bateau de plaisance, false autrement
+ */
+bool estBateauPlaisance(const Bateau* bateau);
+
+/**
+ * Vérifie que le Bateau entré en paramètre est un Bateau de pêche
+ * @param bateau
+ * @return true si le Bateau est bien un Bateau de pêche, false autrement
+ */
+bool estBateauPeche(const Bateau* bateau);
 
 #endif // PRG2_LABO2_BATEAU_H
