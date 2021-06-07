@@ -4,12 +4,11 @@
  Auteur(s)      : Joel Dos Santos Matias, Géraud Silvestri, Valentin Kaelin
  Date creation  : 30.05.2021
 
- Description    : Module mettant à disposition les bases nécessaires à la gestion
-                  du port. S'occupe de structurer les différents types de Bateaux du
-                  Port.
+ Description    : Mets à disposition les bases nécessaires à la gestion du port.
+                  Structure les différents types de Bateaux du Port.                  
 
  Remarque(s)    : Les taxes, étant des champs calculés, ne sont pas stockées
-                  directement dans la structure du Bateau. Il faut la calculer en
+                  directement dans la structure du Bateau. Il faut les calculer en
                   utilisant les fonctions mises à disposition dans le module taxes.
 
  Compilateur    : Mingw-w64 gcc 8.1.0
@@ -74,7 +73,7 @@ typedef struct {
 typedef Bateau Port[];
 
 /**
- * Fonction permettant de construire un bateau de type voilier
+ * Permet de construire un bateau de type voilier
  * @param nom : nom du bateau
  * @param surfaceVoile : surface de la voile en mètres-carrés
  * @return la structure du bateau
@@ -82,7 +81,7 @@ typedef Bateau Port[];
 Bateau voilier(Nom nom, SurfaceVoile surfaceVoile);
 
 /**
- * Fonction permettant de construire un bateau à moteur de pêche
+ * Permet de construire un bateau à moteur de pêche
  * @param nom : nom du bateau
  * @param puissanceMoteur : en nombre de chevaux
  * @param capaciteMaxPeche : en tonnes
@@ -92,7 +91,7 @@ Bateau bateauPeche(Nom nom, PuissanceMoteur puissanceMoteur,
 						 CapaciteMaxPeche capaciteMaxPeche);
 
 /**
- * Fonction permettant de construire un bateau à moteur de plaisance
+ * Permet de construire un bateau à moteur de plaisance
  * @param nom : nom du bateau
  * @param puissanceMoteur  : en nombre de chevaux
  * @param nomProprietaire : nom du propriétaire
