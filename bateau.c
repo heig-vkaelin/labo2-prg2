@@ -23,12 +23,16 @@ const char* const TYPE_BATEAU_MOTEUR[] = {
 
 Bateau voilier(Nom nom, SurfaceVoile surfaceVoile) {
 	assert(nom != NULL);
+	assert(surfaceVoile > 0);
+
 	return (Bateau) {nom, VOILIER, {{surfaceVoile}}};
 }
 
 Bateau bateauPeche(Nom nom, PuissanceMoteur puissanceMoteur,
 						 CapaciteMaxPeche capaciteMaxPeche) {
 	assert(nom != NULL);
+	assert(puissanceMoteur > 0 && capaciteMaxPeche > 0);
+
 	return (Bateau) {
 		nom,
 		BATEAU_MOTEUR,
@@ -43,6 +47,8 @@ Bateau bateauPeche(Nom nom, PuissanceMoteur puissanceMoteur,
 Bateau bateauPlaisance(Nom nom, PuissanceMoteur puissanceMoteur,
 							  Nom nomProprietaire, Longueur longueur) {
 	assert(nom != NULL && nomProprietaire != NULL);
+	assert(puissanceMoteur > 0 && longueur > 0);
+
 	return (Bateau) {
 		nom,
 		BATEAU_MOTEUR,

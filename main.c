@@ -24,28 +24,18 @@
 
 int main() {
 	Port port = {
-		voilier("voilier1", 120),
-		voilier("voilier2", 250),
-		voilier("voilier3", 12),
-		voilier("voilier4", 3500),
-		voilier("voilier5", 111),
-		bateauPlaisance("plaisance1", 51000, "John Pierpont Morgan", 255),
-		bateauPlaisance("plaisance2", 420, "M. Smith", 58),
-		bateauPlaisance("plaisance3", 1230, "John Doe", 127),
-		bateauPlaisance("plaisance4", 150, "Vessel company", 18),
-		bateauPeche("peche1", 4000, 250),
-		bateauPeche("peche2", 220, 12),
-		bateauPeche("peche3", 250, 40),
-
-//		bateauPlaisance("Titanic", 46000, "John Pierpont Morgan", 255),
-//		bateauPlaisance("Pilar", 50, "Ernest Hemingway", 38),
-//		bateauPlaisance("Spirit of Australia", 100, "Ken Warby", 10),
-//		bateauPlaisance("Queen Mary", 16000, "Jack Wrather", 255),
-//
-//		bateauPeche("Angoumois", 200, 15),
-//		bateauPeche("Marie-Louise", 150, 10),
-//		bateauPeche("Sainte-Bernadette", 100, 20),
-//		bateauPeche("Amphitrite", 200, 25)
+		voilier("Black Pearl", 120),
+		voilier("Queen Anne Revenge", 250),
+		voilier("La Neptune", 12),
+		voilier("Hollandais volant", 3500),
+		voilier("Thousand Sunny", 111),
+		bateauPlaisance("Titanic", 51000, "John Pierpont Morgan", 255),
+		bateauPlaisance("La Suisse", 420, "M. Smith", 58),
+		bateauPlaisance("MSC Fantasia", 1230, "John Doe", 127),
+		bateauPlaisance("Vevey", 150, "Vessel company", 18),
+		bateauPeche("Koulapik", 4000, 250),
+		bateauPeche("Vladivostok 2000", 220, 12),
+		bateauPeche("Golden Alaska", 250, 40),
 	};
 
 	const size_t NB_BATEAUX = sizeof(port) / sizeof(Bateau);
