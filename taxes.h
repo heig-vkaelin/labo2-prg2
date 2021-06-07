@@ -10,7 +10,7 @@
                   Statistiques implémentées: somme, moyenne, médiane et écart-type
 
  Remarque(s)    : Les différents seuils et valeurs des taxes peuvent tous être
-                  modifiés via la déclaration de constantes mais pas lors de
+                  modifiés via la déclaration de constantes, mais pas lors de
                   l'exécution du programme.
 
  Compilateur    : Mingw-w64 gcc 8.1.0
