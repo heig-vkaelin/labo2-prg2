@@ -5,11 +5,11 @@
  Date creation  : 30.05.2021
 
  Description    : Implémentation des fonctions concernant les taxes des Bateaux du
-                  port.
+                  Port.
 
  Remarque(s)    : Lors de la séparation des taxes par type, la vérification de
-                  que l'allocation mémoire est réussie est laissée au développeur.
-                  Dans le cas où on problème aurait été rencontré, NULL serait
+                  la réussite de l'allocation mémoire est laissée au développeur.
+                  Dans le cas où un problème aurait été rencontré, NULL serait
                   renvoyé.
 
                   Les taxes sont représentées comme des nombres réels malgré le
@@ -33,7 +33,7 @@
 
 /**
  * Fonction interne de comparaison de double utilisée dans l'algorithme de tri
- * quick sort.
+ * rapide.
  */
 int comparerDouble(const void* a, const void* b) {
 	assert(a != NULL && b != NULL);
